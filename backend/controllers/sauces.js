@@ -126,7 +126,10 @@ exports.deleteSauce = (req, res, next) => {
 
 exports.likeOrNotSauce =(req, res, next) =>{
   Sauce.findOne( {_id : req.params.id})
-    .then(sauce => { // nouvelles valeurs à modifier
+    .then(sauce => { 
+      let like =req.body.like
+      let userId = req.body.userId
+      // nouvelles valeurs à modifier
       const newValues = {
           usersLiked: sauce.usersLiked,
           usersDisliked: sauce.usersDisliked,
@@ -135,13 +138,13 @@ exports.likeOrNotSauce =(req, res, next) =>{
       }
       // Différents cas:
       switch (like) {
-          case (like = 1):  // CAS: sauce liked
+          case 1:  // CAS: sauce liked
               newValues.usersLiked.push(userId);
               break;
-          case (like = -1):  // CAS: sauce disliked
+          case -1:  // CAS: sauce disliked
               newValues.usersDisliked.push(userId);
               break;
-          case (like = 0):  // CAS: Annulation du like/dislike  et on retire id du tableau
+          case 0:  // CAS: Annulation du like/dislike  et on retire id du tableau
               if (newValues.usersLiked.includes(userId)) {
                   // si on annule le like
                   const index = newValues.usersLiked.indexOf(userId);
