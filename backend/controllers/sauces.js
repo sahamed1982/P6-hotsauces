@@ -67,7 +67,7 @@ exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file
     ? {
         ...JSON.parse(req.body.sauce),
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.filename}`,
+        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
       }
     : { ...req.body };
 
@@ -160,7 +160,7 @@ exports.likeOrNotSauce =(req, res, next) =>{
       newValues.likes = newValues.usersLiked.length;
       newValues.dislikes = newValues.usersDisliked.length;
       // Mise à jour de la sauce avec les nouvelles valeurs
-      Sauce.updateOne({ _id: sauceId }, newValues )
+      Sauce.updateOne({ _id: req.params.id }, newValues )
           .then(() => res.status(200).json({ message: 'Sauce évaluée !' }))
 
     })
