@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");//npm install --save bcrypt et on le require
 const User = require("../models/User"); //importation du modele User pour s'en servir
 const jwt = require("jsonwebtoken");
-require('dotenv').config();
+
 
 
 //***************************************************************************** */
