@@ -2,6 +2,7 @@
 const bcrypt = require("bcrypt");//npm install --save bcrypt et on le require
 const User = require("../models/User"); //importation du modele User pour s'en servir
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 
 //***************************************************************************** */
@@ -49,7 +50,7 @@ exports.login = (req, res, next) => {
                 //token:'TOKEN'
                  token: jwt.sign(
                      {userId : user._id},
-                     'RANDOM_TOKEN_SECRET', // chaîne secrète de développement temporaire
+                     process.env.JWT_SECRET, // chaîne secrète de développement temporaire
                      { expiresIn:'24h'} // définit la durée de validité du token à 24 heures.
                                           //  L'utilisateur devra donc se reconnecter au bout de 24 heures.
                  )

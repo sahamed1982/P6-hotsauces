@@ -1,6 +1,7 @@
 const http = require('http');
 const app = require('./app');
 
+
 //***************************************************************************** */
 //.......................  SERVER .................................
 //***************************************************************************** */
@@ -16,7 +17,7 @@ const normalizePort = val => {
     }
     return false;
   };
-  const port = normalizePort(process.env.PORT || '3000');
+  const port = normalizePort(process.env.HOST_PORT);
   app.set('port', port);
 //app.set('port', process.env.PORT || 3000);
 
