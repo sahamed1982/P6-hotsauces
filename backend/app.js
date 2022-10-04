@@ -1,5 +1,5 @@
 const express = require('express');
-const helmet = require("helmet");
+
 const mongoose = require('mongoose');
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
@@ -17,8 +17,6 @@ mongoose.connect(process.env.DATABASE_URL,
 //.............................  APP .................................
 //***************************************************************************** */
 const app = express();
-
-app.use(helmet()); //Helmet helps you secure your Express apps by setting various HTTP headers.
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
