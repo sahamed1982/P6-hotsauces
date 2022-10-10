@@ -2,10 +2,10 @@
 This project was generated with Node.js
 
 # To launch Backend
-1. npm install
-2. nodemon server
+1. Run npm install
+2. Run nodemon server
 
 # To launch Frontend
-
-1. npm start
+1. Run npm install
+2. Run npm start
 
