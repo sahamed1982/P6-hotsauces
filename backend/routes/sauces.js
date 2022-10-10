@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/', auth, multer, saucesController.createSauce );
 
 router.post('/:id/like',auth,saucesController.likeOrNotSauce);
-// est ce que auth est obligatoire pour la route des likes?
+
 
 router.put('/:id', auth, multer, saucesController.modifySauce);
 router.delete('/:id', auth, saucesController.deleteSauce );

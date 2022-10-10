@@ -29,5 +29,8 @@ app.use((req, res, next) => {
  app.use('/api/sauces', saucesRoutes);
  app.use('/api/auth', userRoutes)
  app.use('/images', express.static(path.join(__dirname, 'images')));
+ // indique à Express qu'il faut gérer la ressource images de manière statique 
+ //(un sous-répertoire de notre répertoire de base, __dirname)
+ // à chaque fois qu'elle reçoit une requête vers la route /images
  
 module.exports = app;
